@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', 'Noto Sans', sans-serif;
+    background-color: #fcfbf8;
+    color: #1b1a0e;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  input, textarea, select {
+    font-family: inherit;
+  }
+
+  :focus {
+    outline: 2px solid #f0e675;
+    outline-offset: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary-button text-primary-text hover:bg-opacity-90 focus:ring-primary-button;
+  }
+
+  .btn-secondary {
+    @apply bg-primary-button-secondary text-primary-text border border-primary-border hover:bg-opacity-80 focus:ring-primary-border;
+  }
+
+  .card {
+    @apply bg-white rounded-card shadow-card border border-primary-border;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 border border-primary-border rounded-lg bg-white text-primary-text placeholder-primary-secondary focus:outline-none focus:ring-2 focus:ring-primary-button focus:border-transparent;
+  }
+
+  .table {
+    @apply w-full border-collapse;
+  }
+
+  .table th {
+    @apply px-6 py-3 text-center text-xs font-medium text-primary-secondary uppercase tracking-wider border-b border-primary-border;
+  }
+
+  .table td {
+    @apply px-6 py-4 text-sm text-primary-text border-b border-primary-border text-center;
+  }
+  
+  .table td:not(.whitespace-nowrap) {
+    @apply break-words;
+  }
+
+  .table tr:hover {
+    @apply bg-primary-bg;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-security-low {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-security-medium {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-security-high {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .badge-status-matched {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .badge-status-unmatched {
+    @apply bg-gray-100 text-gray-800;
+  }
+}
+
+@layer utilities {
+  .text-masked {
+    @apply select-none;
+    font-family: monospace;
+    letter-spacing: 0.1em;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .8;
+    }
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, #fcfbf8 0%, #f3f2e7 100%);
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(252, 251, 248, 0.8);
+    border: 1px solid rgba(231, 229, 208, 0.3);
+  }
+}

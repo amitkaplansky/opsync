@@ -1,0 +1,30 @@
+{
+  "name": "opsync",
+  "version": "1.0.0",
+  "description": "OPSEC-First Expense Monitoring System",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspace=backend && npm run build --workspace=frontend",
+    "start": "npm run start --workspace=backend",
+    "lint": "npm run lint --workspace=backend && npm run lint --workspace=frontend",
+    "typecheck": "npm run typecheck --workspace=backend && npm run typecheck --workspace=frontend"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.7.1",
+    "@types/tesseract.js": "^0.0.2",
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "luxon": "^3.7.1",
+    "pdf-parse": "^1.1.1",
+    "tesseract.js": "^6.0.1"
+  }
+}
